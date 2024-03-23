@@ -23,8 +23,9 @@ class DatabaseSeeder extends Seeder
             CreateSuperAdminSeeder::class,
             CategoriesTableSeeder::class,
             SubcategoriesTableSeeder::class,
-            ObjectsTableSeeder::class,
+            ProductsTableSeeder::class,
             BookingsTableSeeder::class,
+            PermissionsSeeder::class,
         ]);
     }
 }

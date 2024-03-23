@@ -85,7 +85,7 @@ class RoleController extends Controller
             'permissions.*' => 'required|integer|exists:permissions,id',
         ]);
 
-        $role = Role::where('name', '!=', 'super-user')->findOrFail($role->id);
+        $role = Role::where('name', '!=', 'super-admin')->findOrFail($role->id);
         $role->update([
             'name' => $request->name
         ]);
