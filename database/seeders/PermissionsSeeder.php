@@ -13,9 +13,15 @@ class PermissionsSeeder extends Seeder
      */
     public function run(): void
     {
-        Permission::create(['name'=>'show posts']);
-        Permission::create(['name'=>'add posts']);
-        Permission::create(['name'=>'edit posts']);
-        Permission::create(['name'=>'delete posts']);
+        Permission::create(['name'=>'show']);
+        Permission::create(['name'=>'add categories']);
+        Permission::create(['name'=>'add subcategories']);
+        Permission::create(['name'=>'add objects']);
+        Permission::create(['name'=>'edit categories']);
+        Permission::create(['name'=>'edit subcategories']);
+        Permission::create(['name'=>'edit objects']);
+        Permission::create(['name'=>'delete categories']);
+        Permission::create(['name'=>'delete subcategories']);
+        Permission::create(['name'=>'delete objects']);
     }
 }

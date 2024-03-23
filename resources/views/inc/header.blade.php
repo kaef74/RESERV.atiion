@@ -10,12 +10,14 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Contact</a>
-                </li>
+                @role('super-admin')
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ route('roles.index') }}">Roles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ route('users.index') }}">Users</a>
+                    </li>
+                @endrole
                 @if (Route::has('login'))
                     @auth
                         <li class="nav-item">

@@ -16,19 +16,21 @@
                         </ul>
                     </div>
                 @endif
-                <form method="post" action="{{ route('roles.update', $role->id) }}">
+                <form method="post" action="{{ route('users.update', $user->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="form-group mb-3">
-                        <label for="exampleInputEmail1">Title</label>
-                        <input type="text" name="name" value="{{ $role->name }}" class="form-control" id="exampleInputEmail1">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="exampleInputEmail1">
                     </div>
-                    @foreach($permissions as $permission)
-                        <div class="form-group form-check mb-2">
-                            <input type="checkbox" value="{{ $permission->id }}" @if($role->hasPermissionTo($permission->name)) checked @endif name="permissions[]" class="form-check-input" id="exampleCheck{{ $permission->id }}">
-                            <label class="form-check-label" for="exampleCheck{{ $permission->id }}">{{ $permission->name }}</label>
-                        </div>
-                    @endforeach
+                    <div class="form-floating">
+                        <select name="role_id" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            @foreach($roles as $role)
+                                <option value="{{ $role['id'] }}" @if($user->hasRole($role['name'])) selected @endif>{{ $role['name'] }}</option>
+                            @endforeach
+                        </select>
+                        <label for="floatingSelect">Roles with selects</label>
+                    </div>
                     <button type="submit" class="btn btn-outline-primary mt-2">Submit</button>
                 </form>
             </div>

@@ -7,15 +7,19 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <a href="{{ route('roles.create') }}" class="btn btn-success mb-3">Add new role</a>
-                @foreach($roles as $role)
+                @foreach($users as $user)
                     <div class="card mb-3">
-                        <h5 class="card-header">{{ $role->name }}</h5>
+                        <h5 class="card-header">{{ $user->name }}</h5>
                         <div class="card-body">
-                            <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-outline-primary">Edit</a>
-                            <form action="{{ route('roles.destroy', $role->id) }}" method="post" style="display: inline-block">
+                            <p class="mb-3">Role:
+                                @foreach($user->roles as $role)
+                                    {{ $role['name'] }}
+                                @endforeach
+                            </p>
+                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-primary">Edit</a>
+                            <form action="{{ route('users.destroy', $user->id) }}" method="post" style="display: inline-block">
                                 @csrf
-                                @method('delete')
+                                @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger">Delete</button>
                             </form>
                         </div>
