@@ -8,20 +8,23 @@
         <div class="collapse navbar-collapse" id="navbarsExample02">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link @if(request()->routeIs('home')) active @endif" aria-current="page" href="{{ route('home') }}">Home</a>
                 </li>
                 @role('super-admin')
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('roles.index') }}">Roles</a>
+                        <a class="nav-link @if(request()->routeIs('product.index')  or request()->routeIs('category.index') or request()->routeIs('subcategory.index')) active @endif" aria-current="page" href="{{ route('product.index') }}">Booking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('users.index') }}">Users</a>
+                        <a class="nav-link @if(request()->routeIs('roles.index')) active @endif" aria-current="page" href="{{ route('roles.index') }}">Roles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if(request()->routeIs('users.index')) active @endif" aria-current="page" href="{{ route('users.index') }}">Users</a>
                     </li>
                 @endrole
                 @if (Route::has('login'))
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Messages</a>
+                            <a class="nav-link" aria-current="page" href="#">Product</a>
                         </li>
                     @endauth
                 @endif
