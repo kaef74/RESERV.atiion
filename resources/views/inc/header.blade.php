@@ -8,19 +8,11 @@
         <div class="collapse navbar-collapse" id="navbarsExample02">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link @if(request()->routeIs('home')) active @endif" aria-current="page" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link @if(request()->routeIs('home')) active @endif" aria-current="page" href="{{ route('home') }}">Главная</a>
                 </li>
-                @role('super-admin')
-                    <li class="nav-item">
-                        <a class="nav-link @if(request()->routeIs('product.index')  or request()->routeIs('category.index') or request()->routeIs('subcategory.index')) active @endif" aria-current="page" href="{{ route('product.index') }}">Booking</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @if(request()->routeIs('roles.index')) active @endif" aria-current="page" href="{{ route('roles.index') }}">Roles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @if(request()->routeIs('users.index')) active @endif" aria-current="page" href="{{ route('users.index') }}">Users</a>
-                    </li>
-                @endrole
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">О нас</a>
+                </li>
                 @if (Route::has('login'))
                     @auth
                         <li class="nav-item">
@@ -36,8 +28,11 @@
                                 <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
                                     <ul class="dropdown-menu text-small shadow" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);" data-popper-placement="bottom-end">
-                                        <li><a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('dashboard') }}">Мои заказы</a></li>
                                         <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Профиль</a></li>
+                                        @role('super-admin')
+                                            <li><a class="dropdown-item" href="{{ route('product.index') }}">CRM</a></li>
+                                        @endrole
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" href="{{ route('logout') }}">Выход</a></li>
                                     </ul>

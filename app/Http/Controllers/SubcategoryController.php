@@ -11,7 +11,7 @@ class SubcategoryController extends Controller
     {
         $subcategories = Subcategory::orderBy('id')->get();
 
-        return view('bookings.subcategories.index', compact([
+        return view('crm.subcategories.index', compact([
             'subcategories'
         ]));
     }

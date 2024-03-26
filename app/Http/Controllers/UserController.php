@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $users = User::orderBy('created_at')->where('name', '!=', 'Admin')->get();
 
-        return view('users.index', compact([
+        return view('crm.users.index', compact([
             'users'
         ]));
     }
@@ -51,7 +51,7 @@ class UserController extends Controller
     {
         $roles = Role::orderBy('name')->get();
 
-        return view('users.edit', compact([
+        return view('crm.users.edit', compact([
             'user',
             'roles',
         ]));
@@ -85,6 +85,6 @@ class UserController extends Controller
     {
         User::findOrFail($id)->delete();
 
-        return redirect()->route('users.index')->with('status', 'User deleted!');
+        return redirect()->route('crm.users.index')->with('status', 'User deleted!');
     }
 }

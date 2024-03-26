@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ProductLayout extends Component
+class CrmLayout extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class ProductLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('layouts.product-layout');
+        return view('layouts.crm-layout');
     }
 }

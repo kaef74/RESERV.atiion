@@ -1,5 +1,5 @@
-<x-app-layout>
-    <div class="container mt-6">
+<x-crm-layout>
+    <div class="container mt-4">
         <div class="row">
             <div class="col-12">
                 @if (session('status'))
@@ -19,7 +19,7 @@
                 <form method="post" action="{{ route('users.update', $user->id) }}">
                     @csrf
                     @method('PUT')
-                    <div class="form-group mb-3">
+                    <div class="form-group my-2">
                         <label for="exampleInputEmail1">Name</label>
                         <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="exampleInputEmail1">
                     </div>
@@ -31,9 +31,9 @@
                         </select>
                         <label for="floatingSelect">Roles with selects</label>
                     </div>
-                    <button type="submit" class="btn btn-outline-primary mt-2">Submit</button>
+                    <button type="submit" class="btn btn-outline-primary my-2">Отправить</button>
                 </form>
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-crm-layout>

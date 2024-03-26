@@ -11,8 +11,53 @@ class CategoryController extends Controller
     {
         $categories = Category::orderBy('id')->get();
 
-        return view('bookings.categories.index', compact([
+        return view('crm.categories.index', compact([
             'categories'
         ]));
+    }
+
+    public function create()
+    {
+        return view('crm.categories.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        Category::create($request->all());
+
+        return redirect()->back()->with('status', 'Category added!');
+    }
+
+    public function edit($id)
+    {
+        $category = Category::findOrFail($id);
+
+        return view('crm.categories.edit', compact([
+            'category'
+        ]));
+    }
+
+    public function update($id, Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $category = Category::findOrFail($id);
+
+        $category->update($request->all());
+
+        return redirect()->back()->with('status', 'Category updated!');
+    }
+
+    public function destroy($id)
+    {
+        Category::findOrFail($id)->delete();
+
+        return redirect()->route('category.index')->with('status', 'Category deleted!');
     }
 }

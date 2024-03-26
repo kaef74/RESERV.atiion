@@ -1,4 +1,4 @@
-<x-product-layout>
+<x-crm-layout>
     <div class="container ">
         <div class="row align-items">
             @foreach($products as $product)
@@ -15,4 +15,4 @@
             @endforeach
         </div>
     </div>
-</x-product-layout>
+</x-crm-layout>

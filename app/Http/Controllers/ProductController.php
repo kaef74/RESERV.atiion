@@ -12,7 +12,7 @@ class ProductController extends Controller
     {
         $products = Product::orderBy('created_at')->get();
 
-        return view('bookings.products.index', compact([
+        return view('crm.products.index', compact([
             'products'
         ]));
     }

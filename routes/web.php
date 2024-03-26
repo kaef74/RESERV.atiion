@@ -27,7 +27,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/category', CategoryController::class)->middleware(['can:show']);
     Route::resource('/subcategory', SubcategoryController::class)->middleware(['can:show']);
 
-
     Route::resource('/roles', RoleController::class)->middleware('role:super-admin');
     Route::resource('/users', UserController::class)->middleware('role:super-admin');
 });

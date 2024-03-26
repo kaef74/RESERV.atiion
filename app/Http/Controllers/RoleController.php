@@ -15,7 +15,7 @@ class RoleController extends Controller
     {
         $roles = Role::orderBy('name')->where('name', '!=', 'super-admin')->get();
 
-        return view('roles.index', compact([
+        return view('crm.roles.index', compact([
             'roles'
         ]));
     }
@@ -27,7 +27,7 @@ class RoleController extends Controller
     {
         $permissions = Permission::orderBy('name')->get();
 
-        return view('roles.create', compact([
+        return view('crm.roles.create', compact([
             'permissions'
         ]));
     }
@@ -68,7 +68,7 @@ class RoleController extends Controller
         $role = Role::where('name', '!=', 'super-admin')->findOrFail($role->id);
         $permissions = Permission::orderBy('name')->get();
 
-        return view('roles.edit', compact([
+        return view('crm.roles.edit', compact([
             'permissions',
             'role'
         ]));
@@ -102,6 +102,6 @@ class RoleController extends Controller
     {
         Role::findOrFail($id)->delete();
 
-        return redirect()->route('roles.index')->with('status', 'Role deleted!');
+        return redirect()->route('crm.roles.index')->with('status', 'Role deleted!');
     }
 }
