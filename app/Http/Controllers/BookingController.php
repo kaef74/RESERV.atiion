@@ -13,16 +13,14 @@ class BookingController extends Controller
     {
         $bookings = DB::table('products')
             ->select('name', 'description', 'price')
-            ->join('bookings', 'product_id', '=', 'products.id' )
-            ->orderBy('user_id')->where('user_id', '=', $request->user()->id )
+            ->join('bookings', 'product_id', '=', 'products.id')
+            ->orderBy('user_id')->where('user_id', '=', $request->user()->id)
             ->get();
 
         return view('dashboard', compact([
             'bookings'
         ]));
 
-
     }
-
 
 }
