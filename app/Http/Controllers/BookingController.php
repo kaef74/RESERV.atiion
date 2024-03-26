@@ -11,15 +11,14 @@ class BookingController extends Controller
 {
     public function index(Request $request )
     {
-        $bookings = Booking::orderBy('user_id')->where('user_id', '=', $request->user()->id )->get();
-        $products = DB::table('products')
+        $bookings = DB::table('products')
             ->select('name', 'description', 'price')
             ->join('bookings', 'product_id', '=', 'products.id' )
+            ->orderBy('user_id')->where('user_id', '=', $request->user()->id )
             ->get();
 
         return view('dashboard', compact([
-            'bookings',
-            'products'
+            'bookings'
         ]));
 
 

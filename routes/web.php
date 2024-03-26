@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [BookingController::class, 'index'])->name('dashboard')->middleware(['can:show']);
+    Route::get('/dashboard', [BookingController::class, 'index'])->name('dashboard');
 
     Route::resource('/product', ProductController::class)->middleware(['can:show']);
     Route::resource('/category', CategoryController::class)->middleware(['can:show']);
