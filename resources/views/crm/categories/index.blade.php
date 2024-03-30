@@ -13,7 +13,7 @@
                         <h5 class="card-header">{{ $category->name }}</h5>
                         <div class="card-body">
                             <p class="small">{{ $category->created_at }}</p>
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <div class="btn-group">
                                 @if(auth()->user()->can(''))
                                     <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning">Редактировать</a>
                                 @endif

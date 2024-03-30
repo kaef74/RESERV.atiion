@@ -22,9 +22,8 @@
                         <label for="categoryName">Название</label>
                         <input type="text" name="name" class="form-control" id="categoryName">
                     </div>
-                    <div class="form-floating">
+                    <div class="form-floating my-2">
                         <select name="category_id" class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach

@@ -16,12 +16,10 @@
                                     {{ $role['name'] }}
                                 @endforeach
                             </p>
-                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-primary">Редактировать</a>
-                            <form action="{{ route('users.destroy', $user->id) }}" method="post" style="display: inline-block">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-outline-danger">Удалить</button>
-                            </form>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Редактировать</a>
+                                <button type="button" class="btn btn-danger delete-user" data-id="{{ $user->id }}">Удалить</button>
+                            </div>
                         </div>
                     </div>
                 @endforeach

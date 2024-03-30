@@ -12,12 +12,10 @@
                     <div class="card my-3">
                         <h5 class="card-header">{{ $role->name }}</h5>
                         <div class="card-body">
-                            <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-outline-primary">Редактировать</a>
-                            <form action="{{ route('roles.destroy', $role->id) }}" method="post" style="display: inline-block">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-outline-danger">Удалить</button>
-                            </form>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-warning">Редактировать</a>
+                                <button type="button" class="btn btn-danger delete-role" data-id="{{ $role->id }}">Удалить</button>
+                            </div>
                         </div>
                     </div>
                 @endforeach

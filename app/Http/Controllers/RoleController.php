@@ -13,7 +13,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::orderBy('name')->where('name', '!=', 'super-admin')->get();
+        $roles = Role::orderBy('id')->where('name', '!=', 'super-admin')->get();
 
         return view('crm.roles.index', compact([
             'roles'
