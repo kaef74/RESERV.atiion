@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
 //        ]);
         $this->call([
             CreateSuperAdminSeeder::class,
+            CreateUserTestSeeder::class,
             CategoriesTableSeeder::class,
             SubcategoriesTableSeeder::class,
             ProductsTableSeeder::class,
