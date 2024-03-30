@@ -16,8 +16,8 @@ class BookingsTableSeeder extends Seeder
         DB::table('bookings')->insert([
             ['user_id' => 1, 'product_id' => 1, 'booking_time' => now()->addDays(1), 'created_at' => now(), 'updated_at' => now()],
             ['user_id' => 2, 'product_id' => 2, 'booking_time' => now()->addDays(1), 'created_at' => now(), 'updated_at' => now()],
-            ['user_id' => 4, 'product_id' => 1, 'booking_time' => now()->addDays(1), 'created_at' => now(), 'updated_at' => now()],
-            ['user_id' => 3, 'product_id' => 2, 'booking_time' => now()->addDays(1), 'created_at' => now(), 'updated_at' => now()],
+            ['user_id' => 1, 'product_id' => 4, 'booking_time' => now()->addDays(1), 'created_at' => now(), 'updated_at' => now()],
+            ['user_id' => 2, 'product_id' => 3, 'booking_time' => now()->addDays(1), 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }
