@@ -21,46 +21,117 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+# RESERV.atiion Project
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Welcome to the RESERV.atiion project. This guide will assist you in setting up the project on your local machine for development and testing purposes.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+![Jokes Card](https://readme-jokes.vercel.app/api)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Getting Started
 
-## Laravel Sponsors
+These instructions will get you a copy of the project up and running on your local machine.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Prerequisites
 
-### Premium Partners
+Before you begin, ensure you have the following installed:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- Git
+- Composer
+- PHP (8.2 or higher recommended)
+- Node.js with npm
 
-## Contributing
+### Installation Steps
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Follow these steps to set up the project:
 
-## Code of Conduct
+1. **Clone the Repository**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+git clone https://github.com/kaef74/RESERV.atiion.git
+```
 
-## Security Vulnerabilities
+2. **Navigate to the Project Directory** 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+cd RESERV.atiion
+```
 
-## License
+3. **Install PHP Dependencies**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+composer install
+```
+
+4. **Install Node.js Modules**
+
+```bash
+npm install
+```
+
+5. **Set Up Environment File**
+
+Copy `.env.example` to `.env`:
+```bash
+cp .env.example .env
+```
+
+6. **Configure Database in `.env`**
+
+Open `.env` and update it with your database details:
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=reserv.atiion
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+7. **Run Database Migrations**
+
+```bash
+php artisan migrate
+```
+
+8. **Seed the Database (Optional)**
+
+```bash
+php artisan db:seed
+```
+
+9. **Generate Application Key**
+
+```bash
+php artisan key:generate
+```
+
+10. **Start the Laravel Development Server**
+
+```bash
+php artisan serve
+```
+
+11. **Compile Assets (Optional for Development)**
+
+```bash
+npm run dev
+```
+
+## Accessing the Project
+
+After starting the Laravel development server, the project will be accessible at [http://localhost:8000](http://localhost:8000).
+
+## Default Accounts
+
+The project includes two predefined accounts:
+
+- **Admin Account**
+    - **Email:** `admin@gmail.com`
+    - **Password:** `1234567890`
+    - **Role:** `super-admin`
+
+- **Test Account**
+    - **Email:** `test@gmail.com`
+    - **Password:** `1234567890`
+    - **Role:** `user`
+
