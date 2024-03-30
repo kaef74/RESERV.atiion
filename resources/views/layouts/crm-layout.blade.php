@@ -30,6 +30,7 @@
     @include('inc.sidebar')
     {{ $slot }}
 </main>
+@include('inc.modal-delete')
 @include('inc.footer')
 </body>
 

@@ -13,16 +13,14 @@
                         <h5 class="card-header">{{ $category->name }}</h5>
                         <div class="card-body">
                             <p class="small">{{ $category->created_at }}</p>
-                            @if(auth()->user()->can(''))
-                                <a href="{{ route('category.edit', $category->id) }}" class="btn btn-outline-primary mt-2">Редактировать</a>
-                            @endif
-                            @if(auth()->user()->can(''))
-                                <form action="{{ route('category.destroy', $category->id) }}" method="post" style="display: inline-block">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-outline-danger mt-2">Удалить</button>
-                                </form>
-                            @endif
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                @if(auth()->user()->can(''))
+                                    <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning">Редактировать</a>
+                                @endif
+                                @if(auth()->user()->can(''))
+                                        <button type="button" class="btn btn-danger delete-category" data-id="{{ $category->id }}">Удалить</button>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 @endforeach

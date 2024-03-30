@@ -20,7 +20,5 @@ class BookingController extends Controller
         return view('dashboard', compact([
             'bookings'
         ]));
-
     }
-
 }

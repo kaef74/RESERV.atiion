@@ -29,7 +29,7 @@ class CategoryController extends Controller
 
         Category::create($request->all());
 
-        return redirect()->back()->with('status', 'Category added!');
+        return redirect()->back()->with('status', 'Категория добавлена!');
     }
 
     public function edit($id)
@@ -51,13 +51,13 @@ class CategoryController extends Controller
 
         $category->update($request->all());
 
-        return redirect()->back()->with('status', 'Category updated!');
+        return redirect()->back()->with('status', 'Категория обновлена!');
     }
 
     public function destroy($id)
     {
         Category::findOrFail($id)->delete();
 
-        return redirect()->route('category.index')->with('status', 'Category deleted!');
+        return redirect()->route('category.index')->with('status', 'Категория удалена!');
     }
 }

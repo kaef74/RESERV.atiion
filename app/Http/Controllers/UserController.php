@@ -85,6 +85,6 @@ class UserController extends Controller
     {
         User::findOrFail($id)->delete();
 
-        return redirect()->route('crm.users.index')->with('status', 'User deleted!');
+        return redirect()->back()->with('status', 'User deleted!');
     }
 }

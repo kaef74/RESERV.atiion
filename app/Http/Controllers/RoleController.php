@@ -49,7 +49,7 @@ class RoleController extends Controller
         $permissions = Permission::whereIn('id', $request->permissions)->get();
         $newRole->syncPermissions($permissions);
 
-        return redirect()->back()->with('status', 'Role added!');
+        return redirect()->back()->with('status', 'Роль добавлена!');
     }
 
     /**
@@ -92,7 +92,7 @@ class RoleController extends Controller
         $permissions = Permission::whereIn('id', $request->permissions)->get();
         $role->syncPermissions($permissions);
 
-        return redirect()->back()->with('status', 'Role updated!');
+        return redirect()->back()->with('status', 'Роль обновлена!');
     }
 
     /**
@@ -102,6 +102,6 @@ class RoleController extends Controller
     {
         Role::findOrFail($id)->delete();
 
-        return redirect()->route('crm.roles.index')->with('status', 'Role deleted!');
+        return redirect()->back()->with('status', 'Роль удалена!');
     }
 }
