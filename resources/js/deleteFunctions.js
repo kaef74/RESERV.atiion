@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     deleteCategoryButtons.forEach(button => {
         button.addEventListener('click', function () {
             const categoryId = this.getAttribute('data-id');
-            setupDelete('/category/' + categoryId);
+            setupDelete('/categories/' + categoryId);
         });
     });
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     deleteSubcategoryButtons.forEach(button => {
         button.addEventListener('click', function () {
             const subcategoryId = this.getAttribute('data-id');
-            setupDelete('/subcategory/' + subcategoryId);
+            setupDelete('/subcategories/' + subcategoryId);
         });
     });
 

@@ -7,23 +7,22 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <a href="{{ route('category.create') }}" class="btn btn-success">Добавить новую категорию</a>
+                <a href="{{ route('categories.create') }}" class="btn btn-success">Добавить новую категорию</a>
                 @foreach($categories as $category)
-                    <div class="card my-3">
-                        <h5 class="card-header">{{ $category->name }}</h5>
-                        <div class="card-body">
-                            <p class="small">{{ $category->created_at }}</p>
-                            <div class="btn-group">
+                        <ul class="list-group list-group-horizontal my-2">
+                            <li class="list-group-item col-3">{{ $category->name }}</li>
+                            <li class="list-group-item col-4">ID: {{ $category->id }} | Создание: {{ $category->created_at }}</li>
+                            <li class="list-group-item col-4">
                                 @if(auth()->user()->can(''))
-                                    <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning">Редактировать</a>
+                                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">Редактировать</a>
                                 @endif
                                 @if(auth()->user()->can(''))
-                                        <button type="button" class="btn btn-danger delete-category" data-id="{{ $category->id }}">Удалить</button>
+                                    <button type="button" class="btn btn-danger delete-category" data-id="{{ $category->id }}">Удалить</button>
                                 @endif
-                            </div>
-                        </div>
-                    </div>
+                            </li>
+                        </ul>
                 @endforeach
+
             </div>
         </div>
     </div>

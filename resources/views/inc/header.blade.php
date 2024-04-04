@@ -31,7 +31,7 @@
                                         <li><a class="dropdown-item" href="{{ route('dashboard') }}">Мои заказы</a></li>
                                         <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Профиль</a></li>
                                         @role('super-admin')
-                                            <li><a class="dropdown-item" href="{{ route('product.index') }}">CRM</a></li>
+                                            <li><a class="dropdown-item" href="{{ route('products.index') }}">CRM</a></li>
                                         @endrole
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" href="{{ route('logout') }}">Выход</a></li>

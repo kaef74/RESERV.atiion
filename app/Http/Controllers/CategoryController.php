@@ -58,6 +58,6 @@ class CategoryController extends Controller
     {
         Category::findOrFail($id)->delete();
 
-        return redirect()->route('category.index')->with('status', 'Категория удалена!');
+        return redirect()->route('categories.index')->with('status', 'Категория удалена!');
     }
 }

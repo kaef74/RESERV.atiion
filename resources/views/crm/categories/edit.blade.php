@@ -16,7 +16,7 @@
                         </ul>
                     </div>
                 @endif
-                <form method="post" action="{{ route('category.update', $category->id) }}">
+                <form method="post" action="{{ route('categories.update', $category->id) }}">
                     @csrf
                     @method('put')
                     <div class="form-group my-3">

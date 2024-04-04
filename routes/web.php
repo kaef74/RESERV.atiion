@@ -23,9 +23,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [BookingController::class, 'index'])->name('dashboard');
 
-    Route::resource('/category', CategoryController::class)->middleware(['can:show']);
-    Route::resource('/product', ProductController::class)->middleware(['can:show']);
-    Route::resource('/subcategory', SubcategoryController::class)->middleware(['can:show']);
+    Route::resource('/categories', CategoryController::class)->middleware(['can:show']);
+    Route::resource('/products', ProductController::class)->middleware(['can:show']);
+    Route::resource('/subcategories', SubcategoryController::class)->middleware(['can:show']);
 
     Route::resource('/roles', RoleController::class)->middleware('role:super-admin');
     Route::resource('/users', UserController::class)->middleware('role:super-admin');

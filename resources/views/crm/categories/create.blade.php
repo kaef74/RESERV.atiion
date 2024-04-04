@@ -16,7 +16,7 @@
                         </ul>
                     </div>
                 @endif
-                <form method="post" action="{{ route('category.store') }}">
+                <form method="post" action="{{ route('categories.store') }}">
                     @csrf
                     <div class="form-group my-2">
                         <label for="categoryName">Название</label>

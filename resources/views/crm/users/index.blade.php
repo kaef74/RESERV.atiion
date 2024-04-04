@@ -7,21 +7,27 @@
                         {{ session('status') }}
                     </div>
                 @endif
+                <form class="w-100 me-3 col-8" role="search">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </form>
                 @foreach($users as $user)
-                    <div class="card my-3">
-                        <h5 class="card-header">{{ $user->name }}</h5>
-                        <div class="card-body">
-                            <p>Role:
-                                @foreach($user->roles as $role)
-                                    {{ $role['name'] }}
-                                @endforeach
-                            </p>
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <ul class="list-group list-group-horizontal my-2">
+                        <li class="list-group-item col-3">{{ $user->name }}</li>
+                        <li class="list-group-item col-5">
+                            Role:
+                            @foreach($user->roles as $role)
+                                {{ $role['name'] }}
+                            @endforeach</li>
+
+                        <li class="list-group-item col-4">
+                            @if(auth()->user()->can(''))
                                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Редактировать</a>
-                                <button type="button" class="btn btn-danger delete-user" data-id="{{ $user->id }}">Удалить</button>
-                            </div>
-                        </div>
-                    </div>
+                            @endif
+                            @if(auth()->user()->can(''))
+                                    <button type="button" class="btn btn-danger delete-user" data-id="{{ $user->id }}">Удалить</button>
+                            @endif
+                        </li>
+                    </ul>
                 @endforeach
             </div>
         </div>

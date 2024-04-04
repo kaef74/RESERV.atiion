@@ -7,18 +7,20 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <a href="{{ route('subcategory.create') }}" class="btn btn-success">Добавить новую доп. категорию</a>
+                <a href="{{ route('subcategories.create') }}" class="btn btn-success">Добавить новую доп. категорию</a>
                 @foreach($subcategories as $subcategory)
-                    <div class="card my-3">
-                        <h5 class="card-header">{{ $subcategory->subcategoryName }}</h5>
-                        <div class="card-body">
-                            <p>Category: {{ $subcategory->categoryName }}</p>
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <a href="{{ route('subcategory.edit', $subcategory->subcategoryId) }}" class="btn btn-warning">Редактировать</a>
-                                <button type="button" class="btn btn-danger delete-subcategory" data-id="{{ $subcategory->subcategoryId }}">Удалить</button>
-                            </div>
-                        </div>
-                    </div>
+                        <ul class="list-group list-group-horizontal my-2">
+                            <li class="list-group-item col-3">Доп. категория: {{ $subcategory->subcategoryName }}</li>
+                            <li class="list-group-item col-4"> Категория: {{ $subcategory->categoryName }}</li>
+                            <li class="list-group-item col-4">
+                                @if(auth()->user()->can(''))
+                                    <a href="{{ route('subcategories.edit', $subcategory->subcategoryId) }}" class="btn btn-warning">Редактировать</a>
+                                @endif
+                                @if(auth()->user()->can(''))
+                                    <button type="button" class="btn btn-danger delete-subcategory" data-id="{{ $subcategory->subcategoryId }}">Удалить</button>
+                                @endif
+                            </li>
+                        </ul>
                 @endforeach
             </div>
         </div>

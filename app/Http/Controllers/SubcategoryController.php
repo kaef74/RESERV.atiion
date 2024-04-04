@@ -78,6 +78,6 @@ class SubcategoryController extends Controller
     {
         Subcategory::findOrFail($id)->delete();
 
-        return redirect()->route('subcategory.index')->with('status', 'Доп. категория удалена!');
+        return redirect()->route('subcategories.index')->with('status', 'Доп. категория удалена!');
     }
 }

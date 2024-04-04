@@ -16,7 +16,7 @@
                         </ul>
                     </div>
                 @endif
-                <form method="post" action="{{ route('subcategory.update', $subcategory->id) }}">
+                <form method="post" action="{{ route('subcategories.update', $subcategory->id) }}">
                     @csrf
                     @method('put')
                     <div class="form-group my-3">
