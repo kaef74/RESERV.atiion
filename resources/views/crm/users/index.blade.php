@@ -7,19 +7,19 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <form class="w-100 me-3 col-8" role="search">
+                <form class="w-100 me-3 col-12" role="search">
                     <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
                 </form>
                 @foreach($users as $user)
                     <ul class="list-group list-group-horizontal my-2">
-                        <li class="list-group-item col-3">{{ $user->name }}</li>
+                        <li class="list-group-item col-4">{{ $user->name }}</li>
                         <li class="list-group-item col-5">
                             Role:
                             @foreach($user->roles as $role)
                                 {{ $role['name'] }}
                             @endforeach</li>
 
-                        <li class="list-group-item col-4">
+                        <li class="list-group-item col-3">
                             @if(auth()->user()->can(''))
                                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Редактировать</a>
                             @endif

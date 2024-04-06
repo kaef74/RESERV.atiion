@@ -7,12 +7,15 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <a href="{{ route('categories.create') }}" class="btn btn-success">Добавить новую категорию</a>
+                <a href="{{ route('categories.create') }}" class="btn btn-success my-2">Добавить новую категорию</a>
+                <form class="w-100 me-3 col-12" role="search">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </form>
                 @foreach($categories as $category)
                         <ul class="list-group list-group-horizontal my-2">
-                            <li class="list-group-item col-3">{{ $category->name }}</li>
-                            <li class="list-group-item col-4">ID: {{ $category->id }} | Создание: {{ $category->created_at }}</li>
-                            <li class="list-group-item col-4">
+                            <li class="list-group-item col-4">{{ $category->name }}</li>
+                            <li class="list-group-item col-5">ID: {{ $category->id }} | Создание: {{ $category->created_at }}</li>
+                            <li class="list-group-item col-3">
                                 @if(auth()->user()->can(''))
                                     <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">Редактировать</a>
                                 @endif
