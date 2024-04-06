@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <!-- Scripts -->
-    @vite(['resources/css/bootstrap.css', 'resources/css/sidebars.css', 'resources/js/app.js', 'resources/js/sidebars.js',])
+    @vite(['resources/css/bootstrap.css', 'resources/css/sidebars.css', 'resources/js/app.js', 'resources/js/sidebars.js', 'resources/js/bootstrap.js', 'resources/js/deleteFunctions.js'])
 
 </head>
 <body>

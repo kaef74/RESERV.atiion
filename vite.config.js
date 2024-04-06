@@ -10,6 +10,8 @@ export default defineConfig({
                 'resources/css/sidebars.css',
                 'resources/js/app.js',
                 'resources/js/sidebars.js',
+                'resources/js/bootstrap.js',
+                'resources/js/deleteFunctions.js'
             ],
             refresh: true,
         }),
