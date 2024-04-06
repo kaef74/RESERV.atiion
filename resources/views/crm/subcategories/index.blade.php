@@ -16,12 +16,14 @@
                             <li class="list-group-item col-4">Доп. категория: {{ $subcategory->subcategoryName }}</li>
                             <li class="list-group-item col-5"> Категория: {{ $subcategory->categoryName }}</li>
                             <li class="list-group-item col-3">
-                                @if(auth()->user()->can(''))
-                                    <a href="{{ route('subcategories.edit', $subcategory->subcategoryId) }}" class="btn btn-warning">Редактировать</a>
-                                @endif
-                                @if(auth()->user()->can(''))
-                                    <button type="button" class="btn btn-danger delete-subcategory" data-id="{{ $subcategory->subcategoryId }}">Удалить</button>
-                                @endif
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    @if(auth()->user()->can(''))
+                                        <a href="{{ route('subcategories.edit', $subcategory->subcategoryId) }}" class="btn btn-warning">Редактировать</a>
+                                    @endif
+                                    @if(auth()->user()->can(''))
+                                        <button type="button" class="btn btn-danger delete-subcategory" data-id="{{ $subcategory->subcategoryId }}">Удалить</button>
+                                    @endif
+                                </div>
                             </li>
                         </ul>
                 @endforeach

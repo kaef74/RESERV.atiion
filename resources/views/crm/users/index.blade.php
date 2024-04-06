@@ -20,12 +20,14 @@
                             @endforeach</li>
 
                         <li class="list-group-item col-3">
-                            @if(auth()->user()->can(''))
-                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Редактировать</a>
-                            @endif
-                            @if(auth()->user()->can(''))
-                                    <button type="button" class="btn btn-danger delete-user" data-id="{{ $user->id }}">Удалить</button>
-                            @endif
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                @if(auth()->user()->can(''))
+                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Редактировать</a>
+                                @endif
+                                @if(auth()->user()->can(''))
+                                        <button type="button" class="btn btn-danger delete-user" data-id="{{ $user->id }}">Удалить</button>
+                                @endif
+                            </div>
                         </li>
                     </ul>
                 @endforeach
