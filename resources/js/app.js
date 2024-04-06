@@ -1,5 +1,6 @@
 import './bootstrap';
 import './deleteFunctions';
+import './sidebars.js';
 
 import Alpine from 'alpinejs';
 
