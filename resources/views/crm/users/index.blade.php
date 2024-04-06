@@ -19,7 +19,7 @@
                                 {{ $role['name'] }}
                             @endforeach</li>
 
-                        <li class="list-group-item col-3">
+                        <li class="list-group-item">
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 @if(auth()->user()->can(''))
                                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Редактировать</a>

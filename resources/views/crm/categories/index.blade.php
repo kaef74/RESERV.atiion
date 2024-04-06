@@ -15,7 +15,7 @@
                         <ul class="list-group list-group-horizontal my-2">
                             <li class="list-group-item col-4">{{ $category->name }}</li>
                             <li class="list-group-item col-5">ID: {{ $category->id }} | Создание: {{ $category->created_at }}</li>
-                            <li class="list-group-item col-3">
+                            <li class="list-group-item ">
                                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                     @if(auth()->user()->can(''))
                                         <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">Редактировать</a>
