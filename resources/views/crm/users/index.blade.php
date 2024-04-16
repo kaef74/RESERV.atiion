@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-4 my-2 d-flex ">
                                     <div class="ms-3">
-                                        Role:
+                                        Роль:
                                         @foreach($user->roles as $role)
                                             {{ $role['name'] }}
                                         @endforeach

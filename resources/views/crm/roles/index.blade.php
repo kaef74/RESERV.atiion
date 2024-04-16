@@ -9,21 +9,26 @@
                 @endif
                 <a href="{{ route('roles.create') }}" class="btn btn-success my-2">Добавить новую роль</a>
                 @foreach($roles as $role)
-                        <ul class="list-group list-group-horizontal my-2">
-                            <li class="list-group-item col-4">{{ $role->name }}</li>
-                            <li class="list-group-item col-5">ID: {{ $role->id }} | Создание: {{ $role->created_at }}</li>
-                            <li class="list-group-item ">
-                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                    @if(auth()->user()->can(''))
-                                        <a href="{{ route('categories.edit', $role->id) }}" class="btn btn-warning">Редактировать</a>
-                                    @endif
-                                    @if(auth()->user()->can(''))
-                                        <button type="button" class="btn btn-danger delete-category" data-id="{{ $role->id }}">Удалить</button>
-                                    @endif
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row g-0">
+                                    <div class="col-sm-12 col-md-12 col-lg-4 my-2 d-flex ">
+                                        <div class="ms-3">{{ $role->name }}</div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-4 my-2 d-flex ">
+                                        <div class="ms-3">
+                                            ID: {{ $role->id }} | Создание: {{ $role->created_at }}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-3 ms-2 my-2 d-flex ">
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-warning">Редактировать</a>
+                                            <button type="button" class="btn btn-danger delete-user" data-id="{{ $role->id }}">Удалить</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </li>
-                        </ul>
-
+                            </div>
+                        </div>
                 @endforeach
             </div>
         </div>
