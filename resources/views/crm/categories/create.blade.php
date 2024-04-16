@@ -22,7 +22,7 @@
                         <label for="categoryName">Название</label>
                         <input type="text" name="name" class="form-control" id="categoryName">
                     </div>
-                    <button type="submit" class="btn btn-outline-primary mt-b">Submit</button>
+                    <button type="submit" class="btn btn-outline-primary mt-2">Submit</button>
                 </form>
             </div>
         </div>

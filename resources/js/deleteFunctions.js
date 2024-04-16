@@ -1,12 +1,11 @@
 import axios from "axios";
 
-// Импорт axios уже выполнен в вашем файле
-
 document.addEventListener('DOMContentLoaded', function () {
     const deleteCategoryButtons = document.querySelectorAll('.delete-category');
     const deleteSubcategoryButtons = document.querySelectorAll('.delete-subcategory');
     const deleteRoleButtons = document.querySelectorAll('.delete-role');
     const deleteUserButtons = document.querySelectorAll('.delete-user');
+    const deleteProductButtons = document.querySelectorAll('.delete-product');
     const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
     const confirmDeleteButton = document.getElementById('confirmDelete');
     let urlToDelete = ''; // URL для удаления
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Установка обработчиков для кнопок удаления категорий
+    // Установка обработчиков для кнопок удаления ролей
     deleteRoleButtons.forEach(button => {
         button.addEventListener('click', function () {
             const id = this.getAttribute('data-id');
@@ -41,11 +40,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Установка обработчиков для кнопок удаления подкатегорий
+    // Установка обработчиков для кнопок удаления пользователей
     deleteUserButtons.forEach(button => {
         button.addEventListener('click', function () {
             const id = this.getAttribute('data-id');
             setupDelete('/users/' + id);
+        });
+    });
+
+    // Установка обработчиков для кнопок удаления продуктов
+    deleteProductButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const productId = this.getAttribute('data-id');
+            setupDelete('/products/' + productId);
         });
     });
 

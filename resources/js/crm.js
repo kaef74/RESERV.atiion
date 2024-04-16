@@ -1,3 +1,6 @@
+import './deleteFunctions';
+import './sidebars.js';
+import './SearchFilter.js';
 import './bootstrap';
 import './bootstrap.bundle.js';
 import './color-modes.js';

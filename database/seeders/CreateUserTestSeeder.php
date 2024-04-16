@@ -18,7 +18,9 @@ class CreateUserTestSeeder extends Seeder
     {
         $user = User::create([
             'email' => 'test@gmail.com',
-            'name' => 'Test',
+            'last_name' => 'Test2',
+            'first_name' => 'Test1',
+            'middle_name' => 'Test3',
             'password' => Hash::make('1234567890'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

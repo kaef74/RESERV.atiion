@@ -28,9 +28,9 @@
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
-                        <label for="floatingSelect">Subcategories with selects</label>
+                        <label for="floatingSelect">Подкатегории с выбранными параметрами</label>
                     </div>
-                    <button type="submit" class="btn btn-outline-primary mt-b">Submit</button>
+                    <button type="submit" class="btn btn-outline-primary mt-2">Submit</button>
                 </form>
             </div>
         </div>

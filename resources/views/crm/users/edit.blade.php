@@ -20,8 +20,16 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group my-2">
-                        <label for="exampleInputEmail1">Name</label>
-                        <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="exampleInputEmail1">
+                        <label for="last_name">Фамилия</label>
+                        <input type="text" name="last_name" value="{{ $user->last_name }}" class="form-control" id="last_name">
+                    </div>
+                    <div class="form-group my-2">
+                        <label for="first_name">Имя</label>
+                        <input type="text" name="first_name" value="{{ $user->first_name }}" class="form-control" id="first_name">
+                    </div>
+                    <div class="form-group my-2">
+                        <label for="middle_name">Отчество</label>
+                        <input type="text" name="middle_name" value="{{ $user->middle_name }}" class="form-control" id="middle_name">
                     </div>
                     <div class="form-floating">
                         <select name="role_id" class="form-select" id="floatingSelect" aria-label="Floating label select example">

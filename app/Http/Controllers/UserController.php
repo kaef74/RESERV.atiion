@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('created_at')->where('name', '!=', 'Admin')->get();
+        $users = User::orderBy('created_at')->where('id', '!=', '1')->get();
 
         return view('crm.users.index', compact([
             'users'
@@ -63,12 +63,16 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'first_name' => 'required|max:255',
+            'middle_name' => 'nullable|max:255',
             'role_id' => 'required|integer|exists:roles,id',
         ]);
 
         $user->update([
-            'name' => $request->name
+            'last_name' => $request->last_name,
+            'first_name' => $request->first_name,
+            'middle_name' => $request->middle_name
         ]);
 
         $role = Role::find($request->role_id);

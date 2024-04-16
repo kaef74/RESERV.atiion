@@ -13,7 +13,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -24,6 +23,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [BookingController::class, 'index'])->name('dashboard');
 
     Route::resource('/categories', CategoryController::class)->middleware(['can:show']);
+    Route::get('/subcategories/{category}', [CategoryController::class, 'getSubcategories']);
+
     Route::resource('/products', ProductController::class)->middleware(['can:show']);
     Route::resource('/subcategories', SubcategoryController::class)->middleware(['can:show']);
 

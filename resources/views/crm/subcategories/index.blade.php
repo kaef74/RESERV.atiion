@@ -7,25 +7,26 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <a href="{{ route('subcategories.create') }}" class="btn btn-success my-2">Добавить новую доп. категорию</a>
-                <form class="w-100 me-3 col-12" role="search">
-                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                </form>
+                <a href="{{ route('subcategories.create') }}" class="btn btn-success my-2">Добавить новую подкатегорию</a>
                 @foreach($subcategories as $subcategory)
-                        <ul class="list-group list-group-horizontal my-2">
-                            <li class="list-group-item col-4">Доп. категория: {{ $subcategory->subcategoryName }}</li>
-                            <li class="list-group-item col-5"> Категория: {{ $subcategory->categoryName }}</li>
-                            <li class="list-group-item">
-                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                    @if(auth()->user()->can(''))
-                                        <a href="{{ route('subcategories.edit', $subcategory->subcategoryId) }}" class="btn btn-warning">Редактировать</a>
-                                    @endif
-                                    @if(auth()->user()->can(''))
-                                        <button type="button" class="btn btn-danger delete-subcategory" data-id="{{ $subcategory->subcategoryId }}">Удалить</button>
-                                    @endif
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row g-0">
+                                <div class="col-sm-12 col-md-12 col-lg-4 my-2 d-flex ">
+                                    <div class="ms-3">Подкатегория: {{ $subcategory->subcategoryName }}</div>
                                 </div>
-                            </li>
-                        </ul>
+                                <div class="col-sm-12 col-md-12 col-lg-4 my-2 d-flex ">
+                                    <div class="ms-3">Категория: {{ $subcategory->categoryName }}</div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-3 ms-2 my-2 d-flex ">
+                                    <div class="btn-group" role="group">
+                                        <a href="{{ route('subcategories.edit', $subcategory->subcategoryId) }}" class="btn btn-warning">Редактировать</a>
+                                        <button type="button" class="btn btn-danger delete-subcategory" data-id="{{ $subcategory->subcategoryId }}">Удалить</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
             </div>
         </div>

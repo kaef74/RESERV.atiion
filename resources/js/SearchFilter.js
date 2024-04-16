@@ -16,20 +16,14 @@ class SearchFilter {
 
     // Метод для фильтрации записей
     filterRecords(query) {
-        this.list.forEach(item => {
-            // Флаг, видим ли текущий элемент (изначально нет)
-            let isVisible = false;
-
-            // Проходимся по всем полям, по которым нужно искать
-            this.filterFields.forEach(field => {
-                const value = item.querySelector(field).textContent.toLowerCase();
-                if (value.includes(query)) {
-                    isVisible = true;
-                }
+        this.list.forEach(card => {
+            let isVisible = this.filterFields.some(field => {
+                const elements = card.querySelectorAll(field);
+                return Array.from(elements).some(element => element.textContent.toLowerCase().includes(query));
             });
 
             // Управляем видимостью элемента
-            item.style.display = isVisible ? '' : 'none';
+            card.style.display = isVisible ? '' : 'none';
         });
     }
 }
@@ -37,8 +31,8 @@ class SearchFilter {
 // Инициализация поиска после загрузки DOM
 document.addEventListener('DOMContentLoaded', function() {
     new SearchFilter(
-        '.list-group-horizontal', // Селектор списка, по которому идет поиск
+        '.card', // Селектор списка, по которому идет поиск
         'input[type="search"]', // Селектор поля ввода поиска
-        ['.list-group-item.col-4', '.list-group-item.col-5'] // Селекторы полей внутри каждой записи, по которым идет поиск
+        ['.ms-3'] // Попробуем оставить только '.ms-3', если все нужные данные обёрнуты в этот класс
     );
 });
